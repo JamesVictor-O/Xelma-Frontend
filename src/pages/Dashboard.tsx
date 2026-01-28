@@ -1,10 +1,9 @@
 import { ChatSidebar } from "../components/ChatSidebar";
+import PriceChart from "../components/PriceChart";
 const Dashboard = () => {
   return (
     <div className="flex min-h-full">
-      <div className="fixed top-[80px] lg:top-[112px] h-[calc(100vh-80px)] lg:h-[calc(100vh-112px)] z-50">
-        <ChatSidebar />
-      </div>
+      <ChatSidebar />
 
       <div className="flex-1 ml-0 md:ml-80 transition-[margin] duration-300 ease-in-out">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -31,18 +30,9 @@ const Dashboard = () => {
           </div>
 
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <div className="min-h-[300px] flex items-center justify-center bg-white dark:bg-gray-800 p-6 shadow-sm rounded-xl border border-gray-100 dark:border-gray-700">
-              <div className="text-center">
-                <h3 className="text-xl font-bold mb-2 dark:text-gray-100">
-                  Price Chart
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  SOL/USD Live Chart Placeholder
-                </p>
-                <div className="h-40 bg-gray-50 dark:bg-gray-900 mt-4 rounded flex items-center justify-center text-gray-400">
-                  [Chart Visualization]
-                </div>
-              </div>
+            {/* Price Chart */}
+            <div className="min-h-[350px] bg-white dark:bg-gray-800 p-6 shadow-sm rounded-xl border border-gray-100 dark:border-gray-700">
+              <PriceChart height={280} />
             </div>
 
             <div className="mt-5 p-4 bg-black/5 rounded-lg text-center">

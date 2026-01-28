@@ -200,7 +200,7 @@ export function ChatSidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`chat-sidebar fixed left-0 top-0 w-80 h-screen flex flex-col z-50 transition-transform duration-300 ease-in-out border-r
+        className={`chat-sidebar fixed left-0 top-[80px] lg:top-[112px] w-80 h-[calc(100vh-80px)] lg:h-[calc(100vh-112px)] flex flex-col z-40 transition-transform duration-300 ease-in-out border-r
         bg-white dark:bg-[#1f2937] border-gray-100 dark:border-gray-800
         md:translate-x-0 ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
