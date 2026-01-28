@@ -1,3 +1,4 @@
+
 import PredictionControls, { type PredictionData } from "./PredictionControls";
 import "./PredictionCard.css";
 
@@ -14,6 +15,7 @@ const PredictionCard = ({
   isConnecting = false,
   onPrediction,
 }: PredictionCardProps) => {
+
   const isDisabled = !isWalletConnected || !isRoundActive || isConnecting;
 
   return (
@@ -27,6 +29,7 @@ const PredictionCard = ({
         isConnecting={isConnecting}
         onPrediction={onPrediction}
       />
+
     </div>
   );
 };
