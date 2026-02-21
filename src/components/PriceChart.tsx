@@ -156,7 +156,7 @@ const PriceChart = ({ data = dummyData, height = 300 }: PriceChartProps) => {
         <div className="flex items-center gap-2">
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #c0185a, #8b1a4a)" }}
+            style={{ background: "linear-gradient(135deg, #1e3a5f, #0a1929)" }}
           >
             <span className="text-white text-xs font-bold">XLM</span>
           </div>
@@ -170,16 +170,23 @@ const PriceChart = ({ data = dummyData, height = 300 }: PriceChartProps) => {
         </p>
       </div>
 
-      {/* Chart area wrapper with padded border similar to target */}
-      <div className="relative w-full flex-1 rounded-2xl border-[3px] border-[#efa3c8]" style={{ minHeight: height, background: "linear-gradient(180deg, #CE538A 0%, #A22F69 50%, #76164A 100%)" }}>
+      {/* Chart area wrapper with padded border — azul marino */}
+      <div className="relative w-full flex-1 rounded-2xl border-[3px] border-[#1e3a5f]" style={{ minHeight: height, background: "linear-gradient(180deg, #1e3a5f 0%, #13274F 50%, #0a1929 100%)" }}>
         
         <div className="relative w-full h-full rounded-xl overflow-hidden shadow-inner">
-          {/* Synthwave background using the provided image */}
+          {/* Montañas (imagen de fondo) */}
           <div
-            className="absolute inset-0 bg-cover"
+            className="absolute inset-0 bg-cover bg-center"
             style={{ 
               backgroundImage: "url('/chart-bg.png')",
               backgroundPosition: "center 38%",
+            }}
+          />
+          {/* Overlay azul marino suave para que se vean más las montañas */}
+          <div
+            className="absolute inset-0"
+            style={{ 
+              background: "linear-gradient(180deg, rgba(30, 58, 95, 0.45) 0%, rgba(19, 39, 79, 0.5) 50%, rgba(10, 25, 41, 0.55) 100%)",
             }}
           />
         {/* Chart — leaves space on the right so line terminates exactly at the badge */}
@@ -231,7 +238,7 @@ const PriceChart = ({ data = dummyData, height = 300 }: PriceChartProps) => {
               className="font-bold text-xs px-2 py-1 rounded shadow-sm tabular-nums whitespace-nowrap relative"
               style={{
                 background: "rgba(255,255,255,0.98)",
-                color: "#8b1a4a",
+                color: "#0a1929",
                 marginLeft: "8px",
               }}
             >
