@@ -11,6 +11,8 @@ vi.mock('../lib/api-client', () => ({
     },
 }));
 
+const mockedEducationApi = vi.mocked(educationApi);
+
 // Mock Lucide icons as they can be problematic in JSDOM
 vi.mock('lucide-react', () => ({
     BookOpen: () => <div data-testid="book-icon" />,
@@ -51,16 +53,16 @@ describe('LearnPage', () => {
     });
 
     it('renders loading state initially', async () => {
-        (educationApi.getGuides as any).mockReturnValue(new Promise(() => { }));
-        (educationApi.getTip as any).mockReturnValue(new Promise(() => { }));
+        mockedEducationApi.getGuides.mockReturnValue(new Promise(() => { }));
+        mockedEducationApi.getTip.mockReturnValue(new Promise(() => { }));
 
         render(<LearnPage />);
         expect(screen.getByText(/Fetching the latest alpha/i)).toBeInTheDocument();
     });
 
     it('renders guides and tip on success', async () => {
-        (educationApi.getGuides as any).mockResolvedValue(mockGuides);
-        (educationApi.getTip as any).mockResolvedValue(mockTip);
+        mockedEducationApi.getGuides.mockResolvedValue(mockGuides);
+        mockedEducationApi.getTip.mockResolvedValue(mockTip);
 
         render(<LearnPage />);
 
@@ -71,8 +73,8 @@ describe('LearnPage', () => {
     });
 
     it('renders empty states when no content is returned', async () => {
-        (educationApi.getGuides as any).mockResolvedValue([]);
-        (educationApi.getTip as any).mockResolvedValue(null);
+        mockedEducationApi.getGuides.mockResolvedValue([]);
+        mockedEducationApi.getTip.mockResolvedValue(null);
 
         render(<LearnPage />);
 
@@ -83,8 +85,8 @@ describe('LearnPage', () => {
     });
 
     it('renders error state when both requests fail', async () => {
-        (educationApi.getGuides as any).mockRejectedValue(new Error('Guides failed'));
-        (educationApi.getTip as any).mockRejectedValue(new Error('Tip failed'));
+        mockedEducationApi.getGuides.mockRejectedValue(new Error('Guides failed'));
+        mockedEducationApi.getTip.mockRejectedValue(new Error('Tip failed'));
 
         render(<LearnPage />);
 
@@ -94,8 +96,8 @@ describe('LearnPage', () => {
     });
 
     it('renders partial content when only one request fails', async () => {
-        (educationApi.getGuides as any).mockResolvedValue(mockGuides);
-        (educationApi.getTip as any).mockRejectedValue(new Error('Tip failed'));
+        mockedEducationApi.getGuides.mockResolvedValue(mockGuides);
+        mockedEducationApi.getTip.mockRejectedValue(new Error('Tip failed'));
 
         render(<LearnPage />);
 

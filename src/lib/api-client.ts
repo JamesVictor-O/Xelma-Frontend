@@ -32,5 +32,5 @@ async function fetchApi<T>(endpoint: string, options?: RequestInit): Promise<T> 
 
 export const educationApi = {
     getGuides: () => fetchApi<Guide[]>('/api/education/guides'),
-    getTip: () => fetchApi<Tip>('/api/education/tip'),
+    getTip: () => fetchApi<Tip | null>('/api/education/tip'),
 };
